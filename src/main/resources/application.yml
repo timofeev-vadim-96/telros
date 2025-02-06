@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: telros
+
+    datasource:
+      url: jdbc:h2:mem:test
+#  datasource:
+#    url: jdbc:postgresql://localhost:6666/telros_db
+#    username: admin
+#    password: admin
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    enabled: true
+
+springdoc:
+  api-docs:
+    path: "/api/v1/api-docs"
+  swagger-ui:
+    path: "/api/v1/swagger-ui"
+  override-with-generic-response: false #????? ???? ?????? ?? RestControllerAdvice ?? ???????????????? ?? ??? ?????????
+
+logging:
+  level:
+    web: debug
+    root: info
+
+application:
+  security:
+    jwt:
+      SECRET_KEY: cdge07e9f410f80eff1a031eb91058447659c70c86216873ebcfe1455feb7a5c
+      #1 day
+      expiration: 86400000
+      #7 days
+      refresh-token-expiration: 604800000
+
+minio:
+  address: localhost
+  port: 9000
+  tsl: false
+  login: admin
+  password: password
