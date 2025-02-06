@@ -31,7 +31,6 @@ class ImageServiceImplTest {
 
     private static ImageService imageService;
 
-
     @BeforeAll
     static void setUp() {
         minioContainer.start();

@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 @DisplayName("Тест безопасности сервиса для работы с детальной информацией о пользователе")
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 class UserInfoServiceImplSecurityTest {
     private final static String ADMIN_EMAIL = "testAdmin@gmail.com"; //id = 1
 

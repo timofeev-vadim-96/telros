@@ -8,13 +8,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import ru.telros.telros.exception.AccessDeniedException;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
-@DisplayName("Тест безопаности сервиса для работы с картинками")
+@DisplayName("Тест безопасности сервиса для работы с картинками")
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 class ImageServiceImplSecurityTest {
     private final static String ADMIN_EMAIL = "testAdmin@gmail.com"; //id = 1
 
