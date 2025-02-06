@@ -21,7 +21,7 @@ docker-compose up -d --build
 - Docker-compose
 - Minio
 - Liquibase
-- Junit 5 + Mockito + H2
+- Junit 5 + Mockito + H2 + Testcontainers (minio)
 - Open API + Swagger
 
 `Описание проекта`
