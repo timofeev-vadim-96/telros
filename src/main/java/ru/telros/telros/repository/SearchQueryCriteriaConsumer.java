@@ -5,10 +5,8 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import ru.telros.telros.model.User;
 import ru.telros.telros.util.SearchCriteria;
 
-import java.time.LocalDate;
 import java.util.function.Consumer;
 
 @AllArgsConstructor

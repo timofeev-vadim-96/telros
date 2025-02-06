@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import ru.telros.telros.config.security.JwtProperties;
 import ru.telros.telros.model.User;
 
 import javax.crypto.SecretKey;

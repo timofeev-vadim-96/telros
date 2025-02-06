@@ -3,9 +3,7 @@ package ru.telros.telros.service;
 import io.minio.MinioClient;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 import org.testcontainers.containers.MinIOContainer;
@@ -19,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Сервис для работы с картинками")
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ImageServiceImplTest {
     private static final MinIOContainer minioContainer = new MinIOContainer("minio/minio:latest");
 
@@ -28,7 +25,7 @@ class ImageServiceImplTest {
     private final static MockMultipartFile MULTIPART_FILE =
             new MockMultipartFile("tempFileName", BYTE_FILE_REPRESENTATION);
 
-    private static long EXISTING_USER_ID = 1L;
+    private static final long EXISTING_USER_ID = 1L;
 
     private static MinioClient minioClient;
 
@@ -48,9 +45,7 @@ class ImageServiceImplTest {
 
     @Test
     void uploadImage() {
-        MockMultipartFile mockMultipartFile = new MockMultipartFile("tempFileName", BYTE_FILE_REPRESENTATION);
-
-        String resultString = imageService.uploadImage(EXISTING_USER_ID, mockMultipartFile);
+        String resultString = imageService.uploadImage(EXISTING_USER_ID, MULTIPART_FILE);
 
         assertTrue(resultString.contains("successfully"));
     }
@@ -82,8 +77,7 @@ class ImageServiceImplTest {
 
     @Test
     void removeImage() {
-        MockMultipartFile mockMultipartFile = new MockMultipartFile("tempFileName", BYTE_FILE_REPRESENTATION);
-        imageService.uploadImage(EXISTING_USER_ID, mockMultipartFile);
+        imageService.uploadImage(EXISTING_USER_ID, MULTIPART_FILE);
         assertDoesNotThrow(() -> imageService.downloadImage(EXISTING_USER_ID));
 
         imageService.removeImage(EXISTING_USER_ID);

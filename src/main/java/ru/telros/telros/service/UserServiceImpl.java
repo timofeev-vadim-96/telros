@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public User getUserByEmail(String email) {
         return userDao.findByEmail(email)
-                .orElseThrow(() -> new EntityNotFoundException("User with email = %s is not found".formatted(email)));
+                .orElseThrow(() -> new EntityNotFoundException("User with email = %s not found".formatted(email)));
     }
 
     /**

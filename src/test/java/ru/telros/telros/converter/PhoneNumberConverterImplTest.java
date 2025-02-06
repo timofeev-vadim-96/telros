@@ -8,12 +8,9 @@ import ru.telros.telros.controller.dto.PhoneNumberDto;
 import ru.telros.telros.model.PhoneNumber;
 import ru.telros.telros.model.User;
 
-import java.util.Optional;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Конвертер номеров телефонов")
 class PhoneNumberConverterImplTest {

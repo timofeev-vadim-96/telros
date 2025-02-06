@@ -1,4 +1,4 @@
-package ru.telros.telros.security;
+package ru.telros.telros.config.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
